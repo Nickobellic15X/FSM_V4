@@ -9,8 +9,8 @@ state_machine.c:76:15:OFF_State_Exit	16	static
 state_machine.c:85:15:DEFAULT_State_PC13	16	static
 state_machine.c:92:15:DEFAULT_State	16	static
 state_machine.c:99:15:Ignore_Event	16	static
-state_machine.c:133:6:StateMachine_Dispatch	24	static
-state_machine.c:154:6:initstatemachine	16	static
-state_machine.c:176:6:initevent	16	static
-state_machine.c:202:6:Add_Event_To_Buffer	16	static
-state_machine.c:220:15:Pop_Event_From_Buffer	24	static
+state_machine.c:118:6:StateMachine_Dispatch	24	static
+state_machine.c:139:6:initstatemachine	16	static
+state_machine.c:155:6:initevent	16	static
+state_machine.c:177:6:Add_Event_To_Buffer	16	static
+state_machine.c:195:15:Pop_Event_From_Buffer	24	static

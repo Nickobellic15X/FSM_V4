@@ -1066,9 +1066,9 @@ static status Ignore_Event(StateMachine *me,Event *e)
  80008ce:	4770      	bx	lr
 
 080008d0 <StateMachine_Dispatch>:
- * and avoid having an exit action (or an exit function) this would simplify the code and
- * logic further
- */
+};
+
+
 
 void StateMachine_Dispatch(StateMachine * me, Event *e)
 {
@@ -1191,7 +1191,7 @@ void initstatemachine(StateMachine *me,int size_of_buffer)
  800098c:	af00      	add	r7, sp, #0
  800098e:	6078      	str	r0, [r7, #4]
  8000990:	6039      	str	r1, [r7, #0]
-	//event_typedef temp[size_of_buffer];
+
 	me->state=2;
  8000992:	687b      	ldr	r3, [r7, #4]
  8000994:	2202      	movs	r2, #2
@@ -1200,7 +1200,6 @@ void initstatemachine(StateMachine *me,int size_of_buffer)
  8000998:	687b      	ldr	r3, [r7, #4]
  800099a:	683a      	ldr	r2, [r7, #0]
  800099c:	605a      	str	r2, [r3, #4]
-	//me->event_buffer=temp;
 	me->event_buffer= (event_typedef*)malloc(size_of_buffer*sizeof(event_typedef));
  800099e:	683b      	ldr	r3, [r7, #0]
  80009a0:	4618      	mov	r0, r3
@@ -1209,9 +1208,6 @@ void initstatemachine(StateMachine *me,int size_of_buffer)
  80009a8:	461a      	mov	r2, r3
  80009aa:	687b      	ldr	r3, [r7, #4]
  80009ac:	609a      	str	r2, [r3, #8]
-
-	//memset(me->event_buffer,NOEVENT,size_of_buffer*sizeof(event_typedef));   //seg fault  or memory is not allocated
-
 	me->event_buffer[0] = STARTUP;  //Load the first event as start up
  80009ae:	687b      	ldr	r3, [r7, #4]
  80009b0:	689b      	ldr	r3, [r3, #8]
@@ -1229,7 +1225,6 @@ void initstatemachine(StateMachine *me,int size_of_buffer)
  80009c2:	687b      	ldr	r3, [r7, #4]
  80009c4:	2201      	movs	r2, #1
  80009c6:	611a      	str	r2, [r3, #16]
-
 	me->ptr_Pop_Event_From_Buffer=Pop_Event_From_Buffer;
  80009c8:	687b      	ldr	r3, [r7, #4]
  80009ca:	4a04      	ldr	r2, [pc, #16]	; (80009dc <initstatemachine+0x54>)
@@ -1239,7 +1234,6 @@ void initstatemachine(StateMachine *me,int size_of_buffer)
  80009d0:	4a03      	ldr	r2, [pc, #12]	; (80009e0 <initstatemachine+0x58>)
  80009d2:	619a      	str	r2, [r3, #24]
 
-	//free(temp);
 	return;
  80009d4:	bf00      	nop
 }
